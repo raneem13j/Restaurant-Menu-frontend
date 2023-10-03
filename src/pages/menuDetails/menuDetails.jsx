@@ -19,19 +19,30 @@ function MenuDetails() {
     { id: "edit", label: "Edit price", minWidth: 100 },
   ];
   const menuId = useParams();
-  
+  const [qrCodeUrl, setQrCodeUrl] = useState('');
   const [menu, setMenu] = useState([]);
   const [price , setPrice] = useState({
     price: "",
   });
   const form = useRef();
 
+  useEffect(() => {
+
+    // Fetch the QR code image URL from the server
+    axios.get(`http://localhost:5000/menu/qr/${menuId.id}`)
+      .then((response) => {
+        setQrCodeUrl(response.data);
+        console.log(qrCodeUrl);
+      })
+      .catch((error) => {
+        console.error('Error fetching QR code:', error);
+      });
+  }, [menuId.id]);
+
   const fetchMenus = async () => {
-    console.log(menuId.id);
     try {
       const response = await axios.get(`http://localhost:5000/menu/${menuId.id}`);
       setMenu(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -40,17 +51,6 @@ function MenuDetails() {
   useEffect(() => {
     fetchMenus(); // Initial fetch when component mounts
   }, [menuId.id]); 
-
-  const updateMenuPrice = (productId, newPrice) => {
-    // Create a copy of the menu with the updated price
-    const updatedMenu = [...menu];
-    const updatedProductIndex = updatedMenu.findIndex((product) => product._id === productId);
-
-    if (updatedProductIndex !== -1) {
-      updatedMenu[updatedProductIndex].price = newPrice;
-      setMenu(updatedMenu);
-    }
-  };
 
   const handlePriceChange = (event) =>{
     const { name, value } = event.target;
@@ -151,7 +151,7 @@ function MenuDetails() {
                 </Paper>
               </div>
             </>
-         
+            <img src={`data:image/png;base64,${qrCodeUrl}`} alt="QR Code" />
         </div>
       </div>
     </>

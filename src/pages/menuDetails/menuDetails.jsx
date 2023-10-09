@@ -88,7 +88,7 @@ function MenuDetails() {
 
   return (
     <>
-    <button> <a  href="/dashboard">back to dashboard</a></button>
+    <button className="subcat-edit-button1"> <a  href="/dashboard">back to dashboard</a></button>
       <div className="menuDetails">
         <h1>Menu Details</h1>
         <div className="div-map">

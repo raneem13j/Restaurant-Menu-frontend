@@ -52,7 +52,7 @@ function Login() {
       alert("You have registered successfully, we will send you an email for acceptance");
 
      //// the email part where we add email js and the structure of the email
-
+      
 
 
 

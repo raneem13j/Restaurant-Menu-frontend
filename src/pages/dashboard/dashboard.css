@@ -59,6 +59,13 @@
     color:#0b486a;
     border: transparent;
   }
+  .subcat-edit-button1{
+    height: 50px;
+    background-color:#ff7d00;
+    color:#0b486a;
+    border: transparent;
+    padding: 10px;
+  }
  .list2{
   display: flex;
   flex-direction: row;

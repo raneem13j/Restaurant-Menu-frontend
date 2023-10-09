@@ -51,6 +51,7 @@ const Dashboard = () => {
   return (
     <>
    <div>
+    <button className="subcat-edit-button1"><a  href="/userList">User activating list</a></button>
     <Category
       allData={allData}
       fetchCategories={fetchCategories}

@@ -45,11 +45,10 @@ function Login() {
 
       const data = await response.json();
       Cookies.set("token", data.token);
-    Cookies.set("Id", data.user);
-    Cookies.set("role", data.role);
+      Cookies.set("Id", data.user);
+      Cookies.set("role", data.role);
       
-
-      alert("You have registered successfully, we will send you an email for acceptance");
+    alert("You have registered successfully, we will send you an email for acceptance");
 
      //// the email part where we add email js and the structure of the email
       

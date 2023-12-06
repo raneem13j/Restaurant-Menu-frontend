@@ -29,7 +29,7 @@ function MenuDetails() {
   useEffect(() => {
 
     // Fetch the QR code image URL from the server
-    axios.get(`http://localhost:5000/menu/qr/${menuId.id}`)
+    axios.get(`http://localhost:5000/menu/qrCode/${menuId.id}`)
       .then((response) => {
         setQrCodeUrl(response.data);
         console.log(qrCodeUrl);

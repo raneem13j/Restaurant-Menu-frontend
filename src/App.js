@@ -5,7 +5,8 @@ import Home from "./pages/home/home.jsx";
 import Login from "./pages/login/login.jsx";
 import Dashboard from './pages/dashboard/dashboard.jsx'
 import MenuDetails from "./pages/menuDetails/menuDetails.jsx";
-import UserList from "./pages/userList/userList.jsx"
+import UserList from "./pages/userList/userList.jsx";
+import Menu from "./pages/menu/menu.js";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/userList" element={<UserList />} />
           <Route path="/" element={<Login />} />
           <Route path= "/menuId/:id" element = {<MenuDetails/>} />
+          <Route path= "/menu/qr/:id" element = {<Menu/>} />
       </Routes>
       </>
     </div>
